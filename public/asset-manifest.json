@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c63dafed.css",
+    "main.js": "/static/js/main.6e85a94d.js",
+    "static/js/787.81f24527.chunk.js": "/static/js/787.81f24527.chunk.js",
+    "static/media/servicio2.jpg": "/static/media/servicio2.f00ed9ea452742f1ae35.jpg",
+    "static/media/servicio1.jpg": "/static/media/servicio1.18286314f17a542f7135.jpg",
+    "static/media/logo.png": "/static/media/logo.6a25d297f7a40abe33fa.png",
+    "static/media/class2.png": "/static/media/class2.6ba4eae004357d563192.png",
+    "static/media/quo.jpg": "/static/media/quo.b4f3a38fdfdb940848f0.jpg",
+    "static/media/receta3.jpg": "/static/media/receta3.f743c536a57c21b4ca37.jpg",
+    "static/media/yuko.jpg": "/static/media/yuko.9cb26549aecab0e4df21.jpg",
+    "static/media/vivagym.jpg": "/static/media/vivagym.6fe3b1a973972592a8dd.jpg",
+    "static/media/receta2.jpg": "/static/media/receta2.1bb4e4904ee9dc114495.jpg",
+    "static/media/receta1.jpg": "/static/media/receta1.8092c27ad6d3db6a1d97.jpg",
+    "static/media/home.jpg": "/static/media/home.6f68350ef8bb33bc1954.jpg",
+    "static/media/team-2.jpg": "/static/media/team-2.0182de11f9e2e12fa35b.jpg",
+    "static/media/team-3.jpg": "/static/media/team-3.1ce6c5743d74ab929a5e.jpg",
+    "static/media/google-app.png": "/static/media/google-app.99089c9cf28e729e4126.png",
+    "index.html": "/index.html",
+    "main.c63dafed.css.map": "/static/css/main.c63dafed.css.map",
+    "main.6e85a94d.js.map": "/static/js/main.6e85a94d.js.map",
+    "787.81f24527.chunk.js.map": "/static/js/787.81f24527.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c63dafed.css",
+    "static/js/main.6e85a94d.js"
+  ]
+}

@@ -18,3 +18,16 @@ Route::get('/', function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Route::get('/', function () {
+//     return view('react');
+// });
+// Route::get('/register', function () {
+//     return view('react');
+// });
+
+// Route::any('dashboard/{any?}', function () {
+//     return view('react');
+// });
+
+// require __DIR__.'/auth.php';
