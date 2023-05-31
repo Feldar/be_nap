@@ -60,6 +60,9 @@ Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth
 Route::get('/avatars/{user_id}', [AvatarController::class, 'getAvatars']);
 
 Route::get('recipes', [RecipeController::class, 'index']);
+Route::apiResource('tvshows', EntrenadorController::class)->parameters([
+    'entrenadores' => 'entrenador'
+]);
 
 Route::post('tokens', [TokenController::class, 'store']);
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
