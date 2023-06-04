@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tvshow;
+use App\Models\Episode;
 use Illuminate\Http\Request;
-use App\Http\Resources\TvshowResource;
+use App\Http\Resources\EpisodeResource;
 
-class TvshowController extends Controller
+class EpisodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +18,13 @@ class TvshowController extends Controller
     {
         $busqueda = $request->input('filter');
         $numElementos = $request->input('numElements');
-        $registrosTvshows =
+        $registrosEpisode =
             ($busqueda && array_key_exists('q', $busqueda))
-            ? Tvshow::where('name_rm', 'like', '%' .$busqueda['q'] . '%')
+            ? Episode::where('name_rm', 'like', '%' .$busqueda['q'] . '%')
                 ->paginate($numElementos)
-            : Tvshow::paginate($numElementos);
+            : Episode::paginate($numElementos);
 
-            return TvshowResource::collection($registrosTvshows);
+            return EpisodeResource::collection($registrosEpisode);
     }
 
     /**
@@ -35,48 +35,48 @@ class TvshowController extends Controller
      */
     public function store(Request $request)
     {
-        $tvshow = json_decode($request->getContent(), true);
-        $tvshowData = $tvshow['data']['attributes'];
+        $episode = json_decode($request->getContent(), true);
+        $episodeData = $episode['data']['attributes'];
 
-        $tvshow = Tvshow::create($tvshowData);
+        $episode = Episode::create($episodeData);
 
-        return new TvshowResource($tvshow);
+        return new EpisodeResource($episode);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tvshow  $tvshow
+     * @param  \App\Models\Episode  $episode
      * @return \Illuminate\Http\Response
      */
-    public function show(Tvshow $tvshow)
+    public function show(Episode $episode)
     {
-        return new TvshowResource($tvshow);
+        return new EpisodeResource($episode);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tvshow  $tvshow
+     * @param  \App\Models\Episode  $episode
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tvshow $tvshow)
+    public function update(Request $request, Episode $episode)
     {
-        $tvshowData = json_decode($request->getContent(), true);
-        $tvshow->update($tvshowData['data']['attributes']);
+        $episodeData = json_decode($request->getContent(), true);
+        $episode->update($episodeData['data']['attributes']);
 
-        return new TvshowResource($tvshow);
+        return new EpisodeResource($episode);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tvshow  $tvshow
+     * @param  \App\Models\Episode  $episode
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tvshow $tvshow)
+    public function destroy(Episode $episode)
     {
-        $tvshow->delete();
+        $episode->delete();
     }
 }
