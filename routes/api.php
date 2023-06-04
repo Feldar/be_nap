@@ -16,6 +16,7 @@ use App\Http\Controllers\API\RutinaController;
 use App\Http\Controllers\API\EjercicioController;
 use App\Http\Controllers\API\EntrenadorController;
 use App\Http\Controllers\API\TvshowController;
+use App\Http\Controllers\API\EpisodeController;
 
 
 /*
@@ -56,13 +57,14 @@ Route::apiResource('rutinas', RutinaController::class)->parameters([
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
+Route::apiResource('tvshows', TvshowController::class);
+Route::apiResource('episodes', EpisodeController::class);
+
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth:sanctum');
 Route::get('/avatars/{user_id}', [AvatarController::class, 'getAvatars']);
 
 Route::get('recipes', [RecipeController::class, 'index']);
-
-Route::apiResource('tvshows', TvshowController::class);
 
 Route::post('tokens', [TokenController::class, 'store']);
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
