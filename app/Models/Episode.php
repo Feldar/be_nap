@@ -22,7 +22,12 @@ class Episode extends Model
         'release_date',
         'type',
         'duration',
-        'file'
+        'file',
+        'tvshows_id'
 
     ];
+    public function tvshow()
+    {
+        return $this->belongsTo(Tvshow::class, 'tvshow_id');
+    }
 }

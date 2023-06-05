@@ -27,6 +27,7 @@ class AddEntrenadorIdToUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['entrenador_id']);
             $table->dropColumn('entrenador_id');
         });
     }
