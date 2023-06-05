@@ -23,4 +23,8 @@ class Tvshow extends Model
         'status'
 
     ];
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class, 'tvshow_id');
+    }
 }

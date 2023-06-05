@@ -25,7 +25,9 @@ class CreateEpisodesTable extends Migration
             $table->date('release_date');
             $table->string('type');
             $table->integer('duration');
-            $table->string('file')->nullable();
+            $table->longText('file')->nullable();
+            $table->unsignedBigInteger('tvshows_id');
+            $table->foreign('tvshows_id')->references('id')->on('tvshows');
         });
     }
 
