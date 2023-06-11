@@ -22,7 +22,8 @@ class Episode extends Model
         'release_date',
         'type',
         'duration',
-        'file'
+        'file',
+        'tvshows_id'
 
     ];
 }

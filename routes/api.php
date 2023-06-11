@@ -8,7 +8,6 @@ use Tqdev\PhpCrudApi\Config\Config;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\OrderController;
-use App\Http\Controllers\API\RecipeController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
 use App\Http\Controllers\API\LugarController;
@@ -36,24 +35,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $user;
 });
 
-Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');
-
 Route::apiResource('users', UserController::class);
-Route::apiResource('lugares', LugarController::class)->parameters([
-    'lugares' => 'lugar'
-]);
-
-Route::apiResource('ejercicios', EjercicioController::class)->parameters([
-    'ejercicios' => 'ejercicio'
-]);
-
-Route::apiResource('entrenadores', EntrenadorController::class)->parameters([
-    'entrenadores' => 'entrenador'
-]);
-
-Route::apiResource('rutinas', RutinaController::class)->parameters([
-    'rutinas' => 'rutina'
-]);
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
@@ -63,8 +45,6 @@ Route::apiResource('episodes', EpisodeController::class);
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth:sanctum');
 Route::get('/avatars/{user_id}', [AvatarController::class, 'getAvatars']);
-
-Route::get('recipes', [RecipeController::class, 'index']);
 
 Route::post('tokens', [TokenController::class, 'store']);
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
