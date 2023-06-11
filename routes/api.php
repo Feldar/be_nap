@@ -5,15 +5,9 @@ use Illuminate\Support\Facades\Route;
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config\Config;
-use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
-use App\Http\Controllers\API\LugarController;
-use App\Http\Controllers\API\RutinaController;
-use App\Http\Controllers\API\EjercicioController;
-use App\Http\Controllers\API\EntrenadorController;
 use App\Http\Controllers\API\TvshowController;
 use App\Http\Controllers\API\EpisodeController;
 
@@ -36,8 +30,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::apiResource('users', UserController::class);
-
-Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
 Route::apiResource('tvshows', TvshowController::class);
 Route::apiResource('episodes', EpisodeController::class);

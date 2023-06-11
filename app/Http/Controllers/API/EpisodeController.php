@@ -35,8 +35,17 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
+        // fileupload
+        $request->validate([
+            'file' => 'required|file'
+        ]);
+        $path = $request->file('file')->store('files');
+
         $episode = json_decode($request->getContent(), true);
         $episodeData = $episode['data']['attributes'];
+
+        // fileupload
+        $episodeData['file'] = $path;
 
         $episode = Episode::create($episodeData);
 
@@ -63,6 +72,7 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, Episode $episode)
     {
+        $path = json_decode($request->file('file'), true);
         $episodeData = json_decode($request->getContent(), true);
         $episode->update($episodeData['data']['attributes']);
 
