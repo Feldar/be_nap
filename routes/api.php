@@ -10,6 +10,7 @@ use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
 use App\Http\Controllers\API\TvshowController;
 use App\Http\Controllers\API\EpisodeController;
+use App\Http\Controllers\API\FileuploadController;
 
 
 /*
@@ -28,6 +29,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     $user->fullName = $user->name;
     return $user;
 });
+
+Route::post('upload', [Fileuploadcontroller::class, 'upload']);
+Route::get('download', [Fileuploadcontroller::class, 'download']);
 
 Route::apiResource('users', UserController::class);
 
