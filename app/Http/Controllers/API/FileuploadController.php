@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 class FileuploadController extends Controller
 {
     function upload(Request $request){
-        $result = $request->file('file')->store('./fileuploads');
+        $originalname = $request->file->getClientOriginalName();
+        $result = $request->file('file')->store('files', ['disk' => 'my_files']);
 
         return $result;
     }
 
     function download(Request $request){
-        $path = public_path('storage/fileuploads/AJkwppUqYKCJZ14f03xODT3wUB9w7YJq9TPL8X7Y.png');
+        $myFilePath = $request->query('myFilePath');
+        $path = public_path($myFilePath);
         return response()->download($path);
     }
 }
