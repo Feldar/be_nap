@@ -35,17 +35,9 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
-        // fileupload
-        $request->validate([
-            'file' => 'required|file'
-        ]);
-        $path = $request->file('file')->store('files');
 
         $episode = json_decode($request->getContent(), true);
         $episodeData = $episode['data']['attributes'];
-
-        // fileupload
-        $episodeData['file'] = $path;
 
         $episode = Episode::create($episodeData);
 
