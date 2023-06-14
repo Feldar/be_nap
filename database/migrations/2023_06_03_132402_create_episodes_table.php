@@ -21,13 +21,16 @@ class CreateEpisodesTable extends Migration
             $table->string('name_en')->nullable();
             $table->string('format');
             $table->string('resolution');
-            $table->timestamps();
             $table->date('release_date');
             $table->string('type');
             $table->integer('duration');
-            $table->longText('file')->nullable();
+            $table->string('file')->nullable();
+            $table->string('imagename')->nullable();
+            $table->string('filename')->nullable();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('tvshows_id');
             $table->foreign('tvshows_id')->references('id')->on('tvshows');
+            $table->timestamps();
         });
     }
 

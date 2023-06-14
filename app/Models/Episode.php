@@ -22,7 +22,10 @@ class Episode extends Model
         'release_date',
         'type',
         'duration',
+        'image',
+        'imagename',
         'file',
+        'filename',
         'tvshows_id'
 
     ];

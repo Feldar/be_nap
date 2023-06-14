@@ -18,12 +18,15 @@ class CreateTvshowsTable extends Migration
             $table->string('name_rm');
             $table->string('name_jp');
             $table->string('name_en')->nullable();
-            $table->timestamps();
             $table->string('image')->nullable();
+            $table->string('imagename')->nullable();
+            $table->string('filename')->nullable();
+            $table->string('file')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->integer('episodes')->nullable();
             $table->string('status');
+            $table->timestamps();
         });
     }
 
