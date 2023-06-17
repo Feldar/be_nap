@@ -19,6 +19,10 @@ class CreateSongsTable extends Migration
             $table->string('name_rm');
             $table->string('name_jp');
             $table->integer('duration');
+            $table->string('file');
+            $table->string('filename');
+            $table->unsignedBigInteger('album_id');
+            $table->foreign('album_id')->references('id')->on('albums');
             $table->timestamps();
         });
     }
