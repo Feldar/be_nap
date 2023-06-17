@@ -10,6 +10,10 @@ use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
 use App\Http\Controllers\API\TvshowController;
 use App\Http\Controllers\API\EpisodeController;
+use App\Http\Controllers\API\ArtistController;
+use App\Http\Controllers\API\CharacterController;
+use App\Http\Controllers\API\AlbumController;
+use App\Http\Controllers\API\SongController;
 use App\Http\Controllers\API\FileuploadController;
 
 
@@ -37,6 +41,10 @@ Route::apiResource('users', UserController::class);
 
 Route::apiResource('tvshows', TvshowController::class);
 Route::apiResource('episodes', EpisodeController::class);
+Route::apiResource('artists', ArtistController::class);
+Route::apiResource('characters', CharacterController::class);
+Route::apiResource('albums', AlbumController::class);
+Route::apiResource('songs', SongController::class);
 
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth:sanctum');
