@@ -20,12 +20,12 @@ class Album extends Model
         'release_price',
         'media_format',
         'release_date',
-        'type'
+        'duration'
 
     ];
 
     public function songs()
     {
-        return $this->belongsToMany(User::class, 'album_song', 'album_id', 'song_id');
+        return $this->hasMany(User::class, 'album_id');
     }
 }

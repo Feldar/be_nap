@@ -16,12 +16,15 @@ class Song extends Model
         'song_number',
         'name_rm',
         'name_jp',
-        'duration'
+        'duration',
+        'album_id',
+        'file',
+        'filename'
 
     ];
 
-    public function albums()
+    public function album()
     {
-        return $this->belongsToMany(User::class, 'album_song', 'song_id', 'album_id');
+        return $this->belongsToMany(User::class, 'album_id');
     }
 }

@@ -22,7 +22,6 @@ class CreateAlbumsTable extends Migration
             $table->string('release_price');
             $table->string('media_format');
             $table->date('release_date');
-            $table->string('type');
             $table->integer('duration');
             $table->timestamps();
         });
