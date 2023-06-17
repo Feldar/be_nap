@@ -76,7 +76,7 @@ class User extends Authenticatable
 
     public function rolPorDefecto()
         {
-            $role = Role::where('name', 'Customer')->first();
+            $role = Role::where('name', 'Editor')->first();
             $this->roles()->attach($role->id);
         }
 }

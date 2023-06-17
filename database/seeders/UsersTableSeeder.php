@@ -33,6 +33,10 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin'
         ]);
 
+        $roleAdmin = Role::create([
+            'name' => 'Editor'
+        ]);
+
         $userAdmin->roles()->attach($roleAdmin->id);
 
     }
