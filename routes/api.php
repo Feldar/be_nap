@@ -38,7 +38,6 @@ Route::post('upload', [Fileuploadcontroller::class, 'upload']);
 Route::get('download', [Fileuploadcontroller::class, 'download']);
 
 Route::apiResource('users', UserController::class);
-
 Route::apiResource('tvshows', TvshowController::class);
 Route::apiResource('episodes', EpisodeController::class);
 Route::apiResource('artists', ArtistController::class);

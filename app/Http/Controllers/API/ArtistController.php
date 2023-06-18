@@ -36,49 +36,49 @@ class ArtistController extends Controller
     public function store(Request $request)
     {
 
-        $episode = json_decode($request->getContent(), true);
-        $episodeData = $episode['data']['attributes'];
+        $artist = json_decode($request->getContent(), true);
+        $artistData = $artist['data']['attributes'];
 
-        $episode = Artist::create($episodeData);
+        $artist = Artist::create($artistData);
 
-        return new ArtistResource($episode);
+        return new ArtistResource($artist);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Artist  $episode
+     * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function show(Artist $episode)
+    public function show(Artist $artist)
     {
-        return new ArtistResource($episode);
+        return new ArtistResource($artist);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Artist  $episode
+     * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $episode)
+    public function update(Request $request, Artist $artist)
     {
         $path = json_decode($request->file('file'), true);
-        $episodeData = json_decode($request->getContent(), true);
-        $episode->update($episodeData['data']['attributes']);
+        $artistData = json_decode($request->getContent(), true);
+        $artist->update($artistData['data']['attributes']);
 
-        return new ArtistResource($episode);
+        return new ArtistResource($artist);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Artist  $episode
+     * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artist $episode)
+    public function destroy(Artist $artist)
     {
-        $episode->delete();
+        $artist->delete();
     }
 }

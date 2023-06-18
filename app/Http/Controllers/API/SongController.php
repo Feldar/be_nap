@@ -36,49 +36,49 @@ class SongController extends Controller
     public function store(Request $request)
     {
 
-        $episode = json_decode($request->getContent(), true);
-        $episodeData = $episode['data']['attributes'];
+        $song = json_decode($request->getContent(), true);
+        $songData = $song['data']['attributes'];
 
-        $episode = Song::create($episodeData);
+        $song = Song::create($songData);
 
-        return new SongResource($episode);
+        return new SongResource($song);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Song  $episode
+     * @param  \App\Models\Song  $song
      * @return \Illuminate\Http\Response
      */
-    public function show(Song $episode)
+    public function show(Song $song)
     {
-        return new SongResource($episode);
+        return new SongResource($song);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Song  $episode
+     * @param  \App\Models\Song  $song
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Song $episode)
+    public function update(Request $request, Song $song)
     {
         $path = json_decode($request->file('file'), true);
-        $episodeData = json_decode($request->getContent(), true);
-        $episode->update($episodeData['data']['attributes']);
+        $songData = json_decode($request->getContent(), true);
+        $song->update($songData['data']['attributes']);
 
-        return new SongResource($episode);
+        return new SongResource($song);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Song  $episode
+     * @param  \App\Models\Song  $song
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Song $episode)
+    public function destroy(Song $song)
     {
-        $episode->delete();
+        $song->delete();
     }
 }
