@@ -36,49 +36,49 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
 
-        $episode = json_decode($request->getContent(), true);
-        $episodeData = $episode['data']['attributes'];
+        $character = json_decode($request->getContent(), true);
+        $characterData = $character['data']['attributes'];
 
-        $episode = Character::create($episodeData);
+        $character = Character::create($characterData);
 
-        return new CharacterResource($episode);
+        return new CharacterResource($character);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Character  $episode
+     * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function show(Character $episode)
+    public function show(Character $character)
     {
-        return new CharacterResource($episode);
+        return new CharacterResource($character);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $episode
+     * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Character $episode)
+    public function update(Request $request, Character $character)
     {
         $path = json_decode($request->file('file'), true);
-        $episodeData = json_decode($request->getContent(), true);
-        $episode->update($episodeData['data']['attributes']);
+        $characterData = json_decode($request->getContent(), true);
+        $character->update($characterData['data']['attributes']);
 
-        return new CharacterResource($episode);
+        return new CharacterResource($character);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Character  $episode
+     * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Character $episode)
+    public function destroy(Character $character)
     {
-        $episode->delete();
+        $character->delete();
     }
 }

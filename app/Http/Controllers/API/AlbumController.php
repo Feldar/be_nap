@@ -36,49 +36,49 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
 
-        $episode = json_decode($request->getContent(), true);
-        $episodeData = $episode['data']['attributes'];
+        $album = json_decode($request->getContent(), true);
+        $albumData = $album['data']['attributes'];
 
-        $episode = Album::create($episodeData);
+        $album = Album::create($albumData);
 
-        return new AlbumResource($episode);
+        return new AlbumResource($album);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Album  $episode
+     * @param  \App\Models\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function show(Album $episode)
+    public function show(Album $album)
     {
-        return new AlbumResource($episode);
+        return new AlbumResource($album);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Album  $episode
+     * @param  \App\Models\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Album $episode)
+    public function update(Request $request, Album $album)
     {
         $path = json_decode($request->file('file'), true);
-        $episodeData = json_decode($request->getContent(), true);
-        $episode->update($episodeData['data']['attributes']);
+        $albumData = json_decode($request->getContent(), true);
+        $album->update($albumData['data']['attributes']);
 
-        return new AlbumResource($episode);
+        return new AlbumResource($album);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Album  $episode
+     * @param  \App\Models\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Album $episode)
+    public function destroy(Album $album)
     {
-        $episode->delete();
+        $album->delete();
     }
 }
